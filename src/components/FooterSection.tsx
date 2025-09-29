@@ -18,6 +18,10 @@ const FooterSection = () => {
             variant="cta" 
             size="xl"
             className="group"
+            onClick={() => {
+              // Navigate to external booking page
+              window.open('https://app.example.com/login', '_blank');
+            }}
           >
             Book Your Ticket Now
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />

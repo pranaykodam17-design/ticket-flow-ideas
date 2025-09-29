@@ -31,6 +31,10 @@ const HeroSection = () => {
             variant="cta" 
             size="xl"
             className="group"
+            onClick={() => {
+              // Navigate to external login/signup page
+              window.open('https://app.example.com/login', '_blank');
+            }}
           >
             Start Your Journey
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -39,6 +43,10 @@ const HeroSection = () => {
           <Button 
             variant="hero" 
             size="xl"
+            onClick={() => {
+              // Scroll to benefits section
+              document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' });
+            }}
           >
             Learn More
           </Button>
