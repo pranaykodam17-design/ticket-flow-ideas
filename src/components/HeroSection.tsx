@@ -32,8 +32,9 @@ const HeroSection = () => {
             size="xl"
             className="group"
             onClick={() => {
-              // Navigate to external login/signup page
-              window.open('https://app.example.com/login', '_blank');
+              // For demo purposes - replace with your actual login URL
+              alert('Redirecting to login page... \n\nReplace this with your actual login/signup URL in the code.');
+              // window.open('YOUR_LOGIN_URL_HERE', '_blank');
             }}
           >
             Start Your Journey

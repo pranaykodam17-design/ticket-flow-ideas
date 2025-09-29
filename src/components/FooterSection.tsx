@@ -19,8 +19,9 @@ const FooterSection = () => {
             size="xl"
             className="group"
             onClick={() => {
-              // Navigate to external booking page
-              window.open('https://app.example.com/login', '_blank');
+              // For demo purposes - replace with your actual booking URL  
+              alert('Redirecting to booking page... \n\nReplace this with your actual login/signup URL in the code.');
+              // window.open('YOUR_BOOKING_URL_HERE', '_blank');
             }}
           >
             Book Your Ticket Now
