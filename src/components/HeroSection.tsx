@@ -1,12 +1,38 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Zap, Globe } from "lucide-react";
+import { ArrowRight, Shield, Zap, Globe, LogIn, UserPlus } from "lucide-react";
+import LoginModal from "./LoginModal";
 import heroImage from "@/assets/hero-travel.jpg";
 
 const HeroSection = () => {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
+    <>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Login/Signup Buttons - Top Right */}
+        <div className="absolute top-6 right-6 z-20 flex gap-3">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setIsLoginModalOpen(true)}
+            className="bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm"
+          >
+            <LogIn className="w-4 h-4 mr-2" />
+            Login
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setIsLoginModalOpen(true)}
+            className="bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm"
+          >
+            <UserPlus className="w-4 h-4 mr-2" />
+            Sign Up
+          </Button>
+        </div>
+
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
         <img 
           src={heroImage} 
           alt="Modern transport journey" 
@@ -31,11 +57,7 @@ const HeroSection = () => {
             variant="cta" 
             size="xl"
             className="group"
-            onClick={() => {
-              // For demo purposes - replace with your actual login URL
-              alert('Redirecting to login page... \n\nReplace this with your actual login/signup URL in the code.');
-              // window.open('YOUR_LOGIN_URL_HERE', '_blank');
-            }}
+            onClick={() => setIsLoginModalOpen(true)}
           >
             Start Your Journey
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -70,9 +92,13 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-5"></div>
-    </section>
+        {/* Decorative Elements */}
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-5"></div>
+      </section>
+      
+      {/* Login Modal */}
+      <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
+    </>
   );
 };
 
